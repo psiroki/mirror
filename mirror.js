@@ -1,4 +1,5 @@
 var video = document.querySelector("#videoElement");
+var info = document.getElementById("info");
 var flip = false;
 
 if (navigator.mediaDevices.getUserMedia) {
@@ -17,4 +18,8 @@ if (navigator.mediaDevices.getUserMedia) {
 video.addEventListener("click", function() {
   flip = !flip;
   video.style.transform = flip ? "scale(-1, 1)" : "";
+});
+
+video.addEventListener("loadeddata", function (e) {
+  info.textContent = [video.videoWidth, video.videoHeight].join("x");
 });

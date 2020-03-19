@@ -9,6 +9,7 @@
 		margin: 0;
 		padding: 0;
 		overflow: hidden;
+		font-family: 'Helvetica Neue', Tahoma, sans-serif;
 	}
 	#videoElement {
 		width: 100vw;
@@ -16,11 +17,21 @@
 		background-color: #888;
 		object-fit: cover;
 	}
+	#info {
+		position: fixed;
+		right: 8px;
+		bottom: 8px;
+		color: white;
+		text-shadow: 1px 1px 1px black, 0px 1px 1px black, -1px 1px 1px black;
+		white-space: pre;
+		font-size: 10vmin;
+	}
 </style>
 </head>
  
 <body>
 <video autoplay="true" id="videoElement"></video>
+<span id="info"></span>
 <script defer="defer" src="mirror.js"></script>
 </body>
 </html>
