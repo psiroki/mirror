@@ -7,10 +7,18 @@ if (navigator.mediaDevices.getUserMedia) {
     "#front": "user",
     "#back": "environment"
   };
+  var wm = {
+    "#hd": 1280,
+    "#fullhd": 1920
+  };
+  var hm = {
+    "#hd": 720,
+    "#fullhd": 1080
+  };
   var constraints = {
     video: true,
-    width: { min: 320, ideal: 1920 },
-    height: { min: 180, ideal: 1080 },
+    width: { min: wm[location.hash] || 320, ideal: 1920 },
+    height: { min: hm[location.hash] || 180, ideal: 1080 },
     facingMode: fm[location.hash]
   };
   if (!constraints.facingMode) delete constraints.facingMode;
