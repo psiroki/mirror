@@ -16,10 +16,11 @@ if (navigator.mediaDevices.getUserMedia) {
     "#fullhd": 1080
   };
   var constraints = {
-    video: true,
-    width: { min: wm[location.hash] || 320, ideal: 1920 },
-    height: { min: hm[location.hash] || 180, ideal: 1080 },
-    facingMode: fm[location.hash]
+    video: {
+      width: { min: wm[location.hash] || 320, ideal: 1920 },
+      height: { min: hm[location.hash] || 180, ideal: 1080 },
+      facingMode: fm[location.hash]
+    }
   };
   if (!constraints.facingMode) delete constraints.facingMode;
   navigator.mediaDevices.getUserMedia(constraints)
